@@ -100,6 +100,7 @@ public class Library{
 					textField.setText(""); //clear text box
 					textField.setText(textField.getText()); //set new text
 					bookNumber = Integer.parseInt(textField.getText()); //parse into an integer
+					// PROBLEM LINE
 					label.setText(library[bookNumber]); //print book requested
 				}
 			}
