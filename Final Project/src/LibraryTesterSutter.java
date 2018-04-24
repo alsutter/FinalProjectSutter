@@ -4,8 +4,8 @@
  * The books are symbolized by an object, and they are stored in an array.
  * There are 30 total books.
  * The use of a list signifies the due dates when someone has a book.
+ * 
  * @author Annika Sutter
- *
  */
 
 public class LibraryTesterSutter {
@@ -84,7 +84,6 @@ public class LibraryTesterSutter {
 
 		nElems = 30;
 	
-		
 		dueDateList.insertFirst("Stephanie Stocks", library[13].getTitle(), 41718);
 		library[13].setStatus(false);
 		dueDateList.insertFirst("Grace Riess", library[9].getTitle(), 41318);
@@ -97,9 +96,5 @@ public class LibraryTesterSutter {
 			System.out.println(library[j]);
 			System.out.println();
 		}
-		
 	}
-	
-	
-	
 }

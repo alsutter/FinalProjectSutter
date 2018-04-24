@@ -1,4 +1,9 @@
-
+/**
+ * This class is meant to be used with the LibraryTesterSutter, LinkList, Book and Library classes
+ * This features a way to keep track of if a book is out, who has the book, and when the book is due.
+ * 
+ * @author Annika Sutter
+ */
 public class Link {
 	public String id; //key
 	public long dd; //data item

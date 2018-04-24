@@ -26,8 +26,19 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-
-public class Library{
+/**
+ * This is the interface for the LibraryTesterSutter, Link, LinkList, and Book classes. 
+ * When launched, a pop-up window will prompt for input.
+ * The input can be 
+ * 'a' for access
+ * 'c' for checkout
+ * 'r' for return
+ * 'v' for view entire library
+ * 
+ * Then if needed, more instructions will appear and then execute necessary methods to complete request.
+ * @author Annika Sutter
+ */
+public class Library extends LibraryTesterSutter{ //is the extends necessary??
 
 	private JFrame frame;
 	private JLabel label;
@@ -37,7 +48,7 @@ public class Library{
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -96,12 +107,35 @@ public class Library{
 		btnClickToEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (textField.getText().equals("a")) { //if you want to access a book
-					label.setText("Please enter the book number"); //print instructions
+					label.setText("Please enter the book number to access"); //print instructions
 					textField.setText(""); //clear text box
 					textField.setText(textField.getText()); //set new text
 					bookNumber = Integer.parseInt(textField.getText()); //parse into an integer
 					// PROBLEM LINE
 					label.setText(library[bookNumber]); //print book requested
+				}
+				else if (textField.getText().equals("c")) { //if you want to check out a book
+					label.setText("Please enter the book number to check out"); //print instructions
+					textField.setText(""); //clear text box
+					textField.setText(textField.getText()); //set new text
+					bookNumber = Integer.parseInt(textField.getText()); //parse into an integer
+					//PROBLEM LINE
+					Book.library[bookNumber].setStatus(false);
+					label.setText("Book number: " + bookNumber + "successfully checked out."); //print instructions
+				}
+				else if (textField.getText().equals("r")) { //if you want to return a book
+					label.setText("Please enter the book number to return"); //print instructions
+					textField.setText(""); //clear text box
+					textField.setText(textField.getText()); //set new text
+					bookNumber = Integer.parseInt(textField.getText()); //parse into an integer
+					//PROBLEM LINE
+					Book.library[bookNumber].setStatus(true);
+					label.setText("Book number: " + bookNumber + "successfully returned."); //print instructions
+				}
+				else if (textField.getText().equals("v")) { //if you want to check out a book
+					label.setText("STAND-IN UNTIL I FIGURE THIS OUT"); //print entire library
+					textField.setText(""); //clear text box
+					actionPerformed (e); // recursive, will re-do, but do I need this???
 				}
 			}
 		});

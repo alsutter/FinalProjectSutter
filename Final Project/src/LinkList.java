@@ -1,4 +1,9 @@
-
+/**
+ * This is meant to be used with the Book, Library, LibraryTesterSutter and Link classes
+ * This is used to insert due dates, patrons, and books and print all information
+ * 
+ * @author Annika Sutter
+ */
 public class LinkList {
 	private Link first; //reference to first link on list
 	

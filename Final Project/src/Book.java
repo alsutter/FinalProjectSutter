@@ -1,4 +1,12 @@
-
+/**
+ * This is the Book class that is needed for the LibraryTesterSutter, Link, LinkList and Library classes
+ * This includes a constructor for an empty book, a constructor for a book with all the information,
+ * a method to enter the information, a method to change the in/out status of the book,
+ * a method to see the status, a method to get the title of a book,
+ * a method to change the title of a book, and finally, a toString method to print all of the information
+ * 
+ * @author Annika Sutter
+ */
 public class Book {
 	private String title;
 	private String author;
