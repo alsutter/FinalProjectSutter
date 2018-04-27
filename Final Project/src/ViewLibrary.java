@@ -44,21 +44,21 @@ public class ViewLibrary {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JTextArea txtAreaView = new JTextArea();
 		txtAreaView.setEditable(false);
 		txtAreaView.setBounds(0, 0, 450, 278);
 		frame.getContentPane().add(txtAreaView);
-		
-		//txtAreaView.setText(print());
+		//problem
+		txtAreaView.setText(print());
 	}
-	
-	public void print() {
+	//problem
+	public Book print() {
 		// first, create all books and enter information
 		Book library[] = new Book[30]; // new array of books
 		LinkList dueDateList = new LinkList(); // make new list
 		int j; // loop counter
-		int nElems; //number of books in array
+		int nElems; // number of books in array
 
 		// create new book for every spot in the array
 		for (j = 0; j < library.length; j++) {
@@ -126,12 +126,11 @@ public class ViewLibrary {
 		library[28].setInfo("Harry Potter and the Deathly Hallows", "J.K. Rowling", "Fantasy", true);
 		// book 30
 		library[29].setInfo("The Book Theif", "Markus Zusak", "Fiction", true);
+
 		nElems = 30;
-		
-		
 
+		for (j = 0; j < nElems; j++) {
+			return (library[j]);
 		}
-
-		
 	}
-
+}

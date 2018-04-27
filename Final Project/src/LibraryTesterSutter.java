@@ -1,4 +1,6 @@
 /**
+ * 
+ * THIS WILL BE DELETED PRIOR TO SUBMISSION
  * This project is to keep track of my personal library of books These books are
  * available for rent just like a real library The books are symbolized by an
  * object, and they are stored in an array. There are 30 total books. The use of
