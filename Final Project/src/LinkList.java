@@ -1,20 +1,21 @@
 /**
- * This is meant to be used with the Book, Library, LibraryTesterSutter and Link classes
- * This is used to insert due dates, patrons, and books and print all information
+ * This is meant to be used with the Book, Library, LibraryTesterSutter and Link
+ * classes This is used to insert due dates, patrons, and books and print all
+ * information
  * 
  * @author Annika Sutter
  */
 public class LinkList {
-	private Link first; //reference to first link on list
-	
-	public LinkList() { //constructor
-		first = null; //no items on list yet
+	private Link first; // reference to first link on list
+
+	public LinkList() { // constructor
+		first = null; // no items on list yet
 	}
-	
-	public boolean isEmpty() { //true if list is empty
+
+	public boolean isEmpty() { // true if list is empty
 		return (first == null);
 	}
-	
+
 	public void insertFirst(String patron, String title, long date) {// insert at start of list
 		Link newLink = new Link(patron, title, date); // make new link
 		newLink.next = first; // newLink --> old first

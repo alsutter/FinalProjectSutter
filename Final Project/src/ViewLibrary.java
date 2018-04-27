@@ -1,18 +1,64 @@
-/**
- * This project is to keep track of my personal library of books These books are
- * available for rent just like a real library The books are symbolized by an
- * object, and they are stored in an array. There are 30 total books. The use of
- * a list signifies the due dates when someone has a book.
- * 
- * @author Annika Sutter
- */
+import java.awt.EventQueue;
 
-public class LibraryTesterSutter {
-	public static void main(String[] args) {
+import javax.swing.JFrame;
+import javax.swing.JTextPane;
+import javax.swing.text.Caret;
+
+import java.awt.Color;
+import javax.swing.JTextArea;
+
+public class ViewLibrary {
+
+	private int i;
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void newWindow() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ViewLibrary window = new ViewLibrary();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public ViewLibrary() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JTextArea txtAreaView = new JTextArea();
+		txtAreaView.setEditable(false);
+		txtAreaView.setBounds(0, 0, 450, 278);
+		frame.getContentPane().add(txtAreaView);
+		
+		//txtAreaView.setText(print());
+	}
+	
+	public void print() {
+		// first, create all books and enter information
 		Book library[] = new Book[30]; // new array of books
 		LinkList dueDateList = new LinkList(); // make new list
-		int nElems = 0; // number of items
 		int j; // loop counter
+		int nElems; //number of books in array
 
 		// create new book for every spot in the array
 		for (j = 0; j < library.length; j++) {
@@ -80,20 +126,12 @@ public class LibraryTesterSutter {
 		library[28].setInfo("Harry Potter and the Deathly Hallows", "J.K. Rowling", "Fantasy", true);
 		// book 30
 		library[29].setInfo("The Book Theif", "Markus Zusak", "Fiction", true);
-
 		nElems = 30;
+		
+		
 
-		dueDateList.insertFirst("Stephanie Stocks", library[13].getTitle(), 41718);
-		library[13].setStatus(false);
-		dueDateList.insertFirst("Grace Riess", library[9].getTitle(), 41318);
-		library[9].setStatus(false);
-		dueDateList.insertFirst("Becca Cole", library[29].getTitle(), 4418);
-		library[29].setStatus(false);
-		dueDateList.displayList();
-
-		for (j = 0; j < nElems; j++) {
-			System.out.println(library[j]);
-			System.out.println();
 		}
+
+		
 	}
-}
+
