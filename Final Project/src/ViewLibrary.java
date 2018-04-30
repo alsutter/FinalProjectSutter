@@ -1,15 +1,15 @@
+/**
+ * This is class is for viewing the entire library. This is only called if the user 
+ * presses the view button in the Library class. The class features a method print() 
+ * that turns the entire library into a single string
+ * @author Annika Sutter
+ */
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JTextPane;
-import javax.swing.text.Caret;
-
 import java.awt.Color;
 import javax.swing.JTextArea;
 
 public class ViewLibrary {
-
-	private int i;
 	private JFrame frame;
 
 	/**
@@ -41,24 +41,30 @@ public class ViewLibrary {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 822, 584);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JTextArea txtAreaView = new JTextArea();
+		txtAreaView.setBackground(Color.LIGHT_GRAY);
 		txtAreaView.setEditable(false);
-		txtAreaView.setBounds(0, 0, 450, 278);
+		txtAreaView.setBounds(0, 0, 822, 556);
 		frame.getContentPane().add(txtAreaView);
-		//problem
 		txtAreaView.setText(print());
 	}
-	//problem
-	public Book print() {
+
+	/**
+	 * Creates a string that has all of the library's information on it
+	 * @return fullView a string of all the information
+	 */
+	public String print() {
+
 		// first, create all books and enter information
 		Book library[] = new Book[30]; // new array of books
-		LinkList dueDateList = new LinkList(); // make new list
 		int j; // loop counter
 		int nElems; // number of books in array
+		String view = null;
+		String viewFull = "Entire Library: ";
 
 		// create new book for every spot in the array
 		for (j = 0; j < library.length; j++) {
@@ -130,7 +136,9 @@ public class ViewLibrary {
 		nElems = 30;
 
 		for (j = 0; j < nElems; j++) {
-			return (library[j]);
+			view = library[j].toString();
+			viewFull = viewFull + "\n" + view;
 		}
+		return viewFull;
 	}
 }

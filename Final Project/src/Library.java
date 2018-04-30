@@ -29,8 +29,8 @@ import java.awt.Font;
 
 /**
  * This is the interface for the LibraryTesterSutter, Link, LinkList, and Book
- * classes. When launched, a pop-up window will prompt for input. The input can
- * be 'a' for access 'c' for checkout 'r' for return 'v' for view entire library
+ * classes. When launched, the user can select on of 4 commands, which are
+ * Access, Check Out, Return, or View.
  * 
  * Then if needed, more instructions will appear and then execute necessary
  * methods to complete request.
@@ -156,78 +156,113 @@ public class Library {
 
 		// create label for extra instructions
 		JTextPane label = new JTextPane();
+		label.setEnabled(false);
 		label.setEditable(false);
 		label.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		label.setBackground(Color.WHITE);
-		label.setBounds(114, 183, 235, 78);
+		label.setBackground(Color.LIGHT_GRAY);
+		label.setBounds(25, 120, 415, 78);
 		frame.getContentPane().add(label);
 
 		// create initial instructions panel
 		JTextPane txtpnWelcome = new JTextPane();
-		txtpnWelcome.setBounds(125, 6, 196, 101);
+		txtpnWelcome.setBounds(125, 6, 196, 86);
 		txtpnWelcome.setBackground(Color.LIGHT_GRAY);
 		txtpnWelcome.setEditable(false);
-		txtpnWelcome.setText(
-				"--------WELCOME--------\nInstructions:\nTo access a book, type 'a' \nTo check out a book, type 'c'\nTo return a book, type 'r' \nTo view entire library, type 'v'.");
+		txtpnWelcome
+				.setText("--------WELCOME--------\nInstructions:\nSelect a button. \nThen follow additional prompts.");
 		frame.getContentPane().add(txtpnWelcome);
 
 		// create text field for input
 		textField = new JTextField();
-		textField.setToolTipText("Enter command here");
-		textField.setBounds(114, 119, 235, 26);
+		textField.setEnabled(false);
+		textField.setToolTipText("Enter book number here");
+		textField.setBounds(112, 218, 235, 26);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		textField.setText(textField.getText());
 
-		// create button and button listener for input
-		JButton btnClickToEnter = new JButton("Click to enter");
-		btnClickToEnter.addActionListener(new ActionListener() {
-			int i;
+		// create btnClick
+		JButton btnClick = new JButton("Click to enter");
+		btnClick.setEnabled(false);
+		btnClick.setToolTipText("Click to enter number");
+		btnClick.setBounds(170, 243, 117, 29);
+		frame.getContentPane().add(btnClick);
 
-			public void actionPerformed(ActionEvent e) {
-				if (textField.getText().equals("a")) { // if you want to access a book
-					label.setText("Please enter the book number to access"); // print instructions
-					textField.setText(null); // clear text box
-					// my problem is the next things are looking at the empty text box.
-					// do i delete the clear text box, or work my way around it
-					// delete clear text box would be quicker
-					// but keeping it is more proper
-					actionPerformed(e);
-					textField.setText(textField.getText()); // set new text
-					bookNumber = Integer.parseInt(textField.getText()); // parse into an integer
-					if (bookNumber <= 30) {
-						label.setText("TEST"); // print book requested
-					} else {
-						label.setText("Error, please try again.");
-						actionPerformed(e);
+		// access button and button listeners
+		JButton btnAc = new JButton("Access");
+		btnAc.setToolTipText("View a Single Book");
+		btnAc.setBounds(15, 96, 117, 29);
+		frame.getContentPane().add(btnAc);
+		btnAc.addActionListener(new ActionListener() { // create listener
+			public void actionPerformed(ActionEvent a) { // button pushed
+				label.setEnabled(true);
+				textField.setEnabled(true);
+				btnClick.setEnabled(true);
+				label.setText("Enter the book number you want to access."); // change label
+
+				// btnClick access listener
+				btnClick.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent b) {
+						textField.setText(textField.getText()); // set new text
+						bookNumber = Integer.parseInt(textField.getText()); // parse into an integer
+						if (bookNumber <= 30) {
+							label.setText(library[bookNumber].toString()); // print book requested
+						} else {
+							label.setText("Error, please try again.");
+							actionPerformed(b);
+						}
 					}
-
-				} else if (textField.getText().equals("c")) { // if you want to check out a book
-					label.setText("Please enter the book number to check out"); // print instructions
-					textField.setText(""); // clear text box
-					textField.setText(textField.getText()); // set new text
-					bookNumber = Integer.parseInt(textField.getText()); // parse into an integer
-					// PROBLEM LINE
-					library[bookNumber].setStatus(false);
-					label.setText("Book number: " + bookNumber + "successfully checked out."); // print instructions
-				} else if (textField.getText().equals("r")) { // if you want to return a book
-					label.setText("Please enter the book number to return"); // print instructions
-					textField.setText(""); // clear text box
-					textField.setText(textField.getText()); // set new text
-					bookNumber = Integer.parseInt(textField.getText()); // parse into an integer
-					library[bookNumber].setStatus(true);
-					label.setText("Book number: " + bookNumber + "successfully returned."); // print instructions
-				} else if (textField.getText().equals("v")) { // if you want to check out a book
-					// create new pop-up
-					ViewLibrary newWindow = new ViewLibrary();
-					newWindow.newWindow();
-				} else {
-					label.setText("Error, please restart and try again.");
-					textField.setText(null);
-				}
+				});
 			}
 		});
-		btnClickToEnter.setBounds(173, 142, 117, 29);
-		frame.getContentPane().add(btnClickToEnter);
+
+		// MAKE NEW WINDOW!!!!!
+		// Check Out button and button listeners
+		JButton btnChO = new JButton("Check Out");
+		btnChO.setToolTipText("Check out a book");
+		btnChO.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent c) {
+				CheckOutBook.newWindow();
+
+				// btnClick check out listener
+				btnClick.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent d) {
+						textField.setText(textField.getText()); // set new text
+						bookNumber = Integer.parseInt(textField.getText()); // parse into an integer
+						if (bookNumber <= 30) {
+
+							label.setText(library[bookNumber].toString()); // print book requested
+						} else {
+							label.setText("Error, please try again.");
+							actionPerformed(d);
+						}
+					}
+				});
+			}
+		});
+		btnChO.setBounds(120, 96, 117, 29);
+		frame.getContentPane().add(btnChO);
+
+		// MAKE NEW WINDOW
+		// return button
+		JButton btnRtn = new JButton("Return");
+		btnRtn.setToolTipText("Return a book");
+		btnRtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRtn.setBounds(225, 96, 117, 29);
+		frame.getContentPane().add(btnRtn);
+
+		// view button and listeners
+		JButton btnView = new JButton("View");
+		btnView.setToolTipText("View entire library");
+		btnView.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent v) {
+				ViewLibrary.newWindow();
+			}
+		});
+		btnView.setBounds(330, 96, 117, 29);
+		frame.getContentPane().add(btnView);
 	}
 }
