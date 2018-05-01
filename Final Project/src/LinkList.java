@@ -7,7 +7,8 @@
  */
 public class LinkList {
 	private Link first; // reference to first link on list
-
+	private String fullDueDate = null;
+	
 	public LinkList() { // constructor
 		first = null; // no items on list yet
 	}
@@ -28,14 +29,19 @@ public class LinkList {
 		return temp; // return deleted link
 	}
 
-	public void displayList() {
-		System.out.println("List (first --> last): ");
+	@Override
+	public String toString() {
+		return "Due: " + first;
+	}
+
+	public String displayList() {
 		Link current = first; // start at beginning of list
 		while (current != null) { // until end of list
-			current.displayLink(); // print data
+			current.toString();
+			fullDueDate = fullDueDate + current;
 			current = current.next; // move to next link
 		}
-		System.out.println("");
+		return fullDueDate;
 	}
 
 }

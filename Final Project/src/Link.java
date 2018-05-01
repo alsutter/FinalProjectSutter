@@ -28,7 +28,7 @@ public class Link {
 	/**
 	 * Display links
 	 */
-	public void displayLink() { // display ourself
-		System.out.println("{" + id + ", " + theBook + ", " + dd + "}");
+	public String displayLink() { // display ourself
+		return "{" + id + ", " + theBook + ", " + dd + "}";
 	}
 }

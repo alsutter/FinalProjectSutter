@@ -74,7 +74,7 @@ public class Book {
 	 * 
 	 * @return status true if in, false if out
 	 */
-	public boolean isStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 
@@ -96,7 +96,8 @@ public class Book {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
+	
+	
 	@Override
 	public String toString() {
 		return "Book [Title = " + getTitle() + ", Author = " + author + ", Genre = " + genre + ", Status = " + status
