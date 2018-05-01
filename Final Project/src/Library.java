@@ -14,86 +14,16 @@ import java.awt.Font;
  * classes. When launched, the user can select on of 4 commands, which are
  * Access, Check Out, Return, or View.
  * 
- * Then if needed, more instructions will appear and then execute necessary
- * methods to complete request.
+ * Then if needed, more instructions or windows will appear and then execute
+ * necessary methods to complete request.
  * 
  * @author Annika Sutter
  */
 public class Library {
-
 	private JFrame frame;
 	private JTextField textField;
 	private int bookNumber;
-	// first, create all books and enter information
-			static Book library[] = new Book[30]; // new array of books
-			int j; // loop counter
-
-			// create new book for every spot in the array
-			for (j = 0; j < library.length; j++) {
-				library[j] = new Book();
-			}
-
-			// set all info for all the books
-			// book 1
-			library[0].setInfo("The Hunger Games", "Suzanne Collins", "Science Fiction", true);
-			// book 2
-			library[1].setInfo("Catching Fire", "Suzanne Collins", "Science Fiction", true);
-			// book 3
-			library[2].setInfo("Mockingjay", "Suzanne Collins", "Science Fiction", true);
-			// book 4
-			library[3].setInfo("Hush, Hush", "Becca Fitzpatrick", "Romance", true);
-			// book 5
-			library[4].setInfo("Crecendo", "Becca Fitzpatrick", "Romance", true);
-			// book 6
-			library[5].setInfo("Silence", "Becca Fitzpatrick", "Romance", true);
-			// book 7
-			library[6].setInfo("Finale", "Becca Fitzpatrick", "Romance", true);
-			// book 8
-			library[7].setInfo("The Fault In Our Stars", "John Green", "Fiction", true);
-			// book 9
-			library[8].setInfo("Les Miserables", "Victor Hugo", "Histroical Fiction", true);
-			// book 10
-			library[9].setInfo("The Thousandth Floor", "Katherine McGee", "Science Fiction", true);
-			// book 11
-			library[10].setInfo("Cinder", "Marissa Meyer", "Science Fiction", true);
-			// book 12
-			library[11].setInfo("Scarlet", "Marissa Meyer", "Science Fiction", true);
-			// book 13
-			library[12].setInfo("Cress", "Marissa Meyer", "Science Fiction", true);
-			// book 14
-			library[13].setInfo("The Golden Compass", "Philip Pullman", "Fantasy", true);
-			// book 15
-			library[14].setInfo("The Lost Hero", "Rick Riordan", "Fantasy", true);
-			// book 16
-			library[15].setInfo("The Son of Neptune", "Rick Riordan", "Fantasy", true);
-			// book 17
-			library[16].setInfo("The Mark of Athena", "Rick Riordan", "Fantasy", true);
-			// book 18
-			library[17].setInfo("The House of Hades", "Rick Riordan", "Fantasy", true);
-			// book 19
-			library[18].setInfo("The Blood of Olympus", "Rick Riordan", "Fantasy", true);
-			// book 20
-			library[19].setInfo("Divergent", "Veronica Roth", "Science Fiction", true);
-			// book 21
-			library[20].setInfo("Insurgent", "Veronica Roth", "Science Fiction", true);
-			// book 22
-			library[21].setInfo("Allegiant", "Veronica Roth", "Science Fiction", true);
-			// book 23
-			library[22].setInfo("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", "Fantasy", true);
-			// book 24
-			library[23].setInfo("Harry Potter and the Chamber of Secrets", "J.K. Rowling", "Fantasy", true);
-			// book 25
-			library[24].setInfo("Harry Potter and the Prisoner of Azkaban", "J.K. Rowling", "Fantasy", true);
-			// book 26
-			library[25].setInfo("Harry Potter and the Goblet of Fire", "J.K. Rowling", "Fantasy", true);
-			// book 27
-			library[26].setInfo("Harry Potter and the Order of the Pheonix", "J.K. Rowling", "Fantasy", true);
-			// book 28
-			library[27].setInfo("Harry Potter and the Half-Blood Prince", "J.K. Rowling", "Fantasy", true);
-			// book 29
-			library[28].setInfo("Harry Potter and the Deathly Hallows", "J.K. Rowling", "Fantasy", true);
-			// book 30
-			library[29].setInfo("The Book Theif", "Markus Zusak", "Fiction", true);
+	public static Book library[] = new Book[30]; // new array of books
 
 	/**
 	 * Launch the application.
@@ -123,6 +53,74 @@ public class Library {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		// first, create all books and enter information
+		int j; // loop counter
+
+		// create new book for every spot in the array
+		for (j = 0; j < library.length; j++) {
+			library[j] = new Book();
+		}
+		// set all info for all the books
+		// book 1
+		library[0].setInfo(0, "The Hunger Games", "Suzanne Collins", "Science Fiction", true);
+		// book 2
+		library[1].setInfo(1, "Catching Fire", "Suzanne Collins", "Science Fiction", true);
+		// book 3
+		library[2].setInfo(2, "Mockingjay", "Suzanne Collins", "Science Fiction", true);
+		// book 4
+		library[3].setInfo(3, "Hush, Hush", "Becca Fitzpatrick", "Romance", true);
+		// book 5
+		library[4].setInfo(4, "Crecendo", "Becca Fitzpatrick", "Romance", true);
+		// book 6
+		library[5].setInfo(5, "Silence", "Becca Fitzpatrick", "Romance", true);
+		// book 7
+		library[6].setInfo(6, "Finale", "Becca Fitzpatrick", "Romance", true);
+		// book 8
+		library[7].setInfo(7, "The Fault In Our Stars", "John Green", "Fiction", true);
+		// book 9
+		library[8].setInfo(8, "Les Miserables", "Victor Hugo", "Histroical Fiction", true);
+		// book 10
+		library[9].setInfo(9, "The Thousandth Floor", "Katherine McGee", "Science Fiction", true);
+		// book 11
+		library[10].setInfo(10, "Cinder", "Marissa Meyer", "Science Fiction", true);
+		// book 12
+		library[11].setInfo(11, "Scarlet", "Marissa Meyer", "Science Fiction", true);
+		// book 13
+		library[12].setInfo(12, "Cress", "Marissa Meyer", "Science Fiction", true);
+		// book 14
+		library[13].setInfo(13, "The Golden Compass", "Philip Pullman", "Fantasy", true);
+		// book 15
+		library[14].setInfo(14, "The Lost Hero", "Rick Riordan", "Fantasy", true);
+		// book 16
+		library[15].setInfo(15, "The Son of Neptune", "Rick Riordan", "Fantasy", true);
+		// book 17
+		library[16].setInfo(16, "The Mark of Athena", "Rick Riordan", "Fantasy", true);
+		// book 18
+		library[17].setInfo(17, "The House of Hades", "Rick Riordan", "Fantasy", true);
+		// book 19
+		library[18].setInfo(18, "The Blood of Olympus", "Rick Riordan", "Fantasy", true);
+		// book 20
+		library[19].setInfo(19, "Divergent", "Veronica Roth", "Science Fiction", true);
+		// book 21
+		library[20].setInfo(20, "Insurgent", "Veronica Roth", "Science Fiction", true);
+		// book 22
+		library[21].setInfo(21, "Allegiant", "Veronica Roth", "Science Fiction", true);
+		// book 23
+		library[22].setInfo(22, "Harry Potter and the Sorcerer's Stone", "J.K. Rowling", "Fantasy", true);
+		// book 24
+		library[23].setInfo(23, "Harry Potter and the Chamber of Secrets", "J.K. Rowling", "Fantasy", true);
+		// book 25
+		library[24].setInfo(24, "Harry Potter and the Prisoner of Azkaban", "J.K. Rowling", "Fantasy", true);
+		// book 26
+		library[25].setInfo(25, "Harry Potter and the Goblet of Fire", "J.K. Rowling", "Fantasy", true);
+		// book 27
+		library[26].setInfo(26, "Harry Potter and the Order of the Pheonix", "J.K. Rowling", "Fantasy", true);
+		// book 28
+		library[27].setInfo(27, "Harry Potter and the Half-Blood Prince", "J.K. Rowling", "Fantasy", true);
+		// book 29
+		library[28].setInfo(28, "Harry Potter and the Deathly Hallows", "J.K. Rowling", "Fantasy", true);
+		// book 30
+		library[29].setInfo(29, "The Book Theif", "Markus Zusak", "Fiction", true);
 
 		// create frame
 		frame = new JFrame();
@@ -215,7 +213,6 @@ public class Library {
 		btnChO.setBounds(112, 96, 117, 29);
 		frame.getContentPane().add(btnChO);
 
-		
 		// return button
 		JButton btnRtn = new JButton("Return");
 		btnRtn.setToolTipText("Return a book");

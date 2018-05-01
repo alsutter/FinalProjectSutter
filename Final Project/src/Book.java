@@ -10,6 +10,7 @@
  * @author Annika Sutter
  */
 public class Book {
+	private int number;
 	private String title;
 	private String author;
 	private String genre;
@@ -23,6 +24,8 @@ public class Book {
 
 	// full book constructor
 	/**
+	 * @param number
+	 *            of the book
 	 * @param title
 	 *            of the book
 	 * @param author
@@ -32,8 +35,9 @@ public class Book {
 	 * @param status
 	 *            true if in, false if out
 	 */
-	public Book(String title, String author, String genre, boolean status) {
+	public Book(int number, String title, String author, String genre, boolean status) {
 		super();
+		this.number = number;
 		this.setTitle(title);
 		this.author = author;
 		this.genre = genre;
@@ -43,6 +47,8 @@ public class Book {
 	/**
 	 * Used to set all the info of a new book
 	 * 
+	 * @param number
+	 *            of the book
 	 * @param title
 	 *            of the book
 	 * @param author
@@ -52,7 +58,8 @@ public class Book {
 	 * @param status
 	 *            true if in, false if out
 	 */
-	public void setInfo(String title, String author, String genre, boolean status) {
+	public void setInfo(int number, String title, String author, String genre, boolean status) {
+		this.number = number;
 		this.setTitle(title);
 		this.author = author;
 		this.genre = genre;
@@ -96,12 +103,11 @@ public class Book {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return "Book [Title = " + getTitle() + ", Author = " + author + ", Genre = " + genre + ", Status = " + status
-				+ "]";
+		return "Book [Number = " + number + ", Title = " + getTitle() + ", Author = " + author + ", Genre = " + genre
+				+ ", Status = " + status + "]";
 	}
 
 }

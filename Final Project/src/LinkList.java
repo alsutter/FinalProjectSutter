@@ -8,7 +8,7 @@
 public class LinkList {
 	private Link first; // reference to first link on list
 	private String fullDueDate = null;
-	
+
 	public LinkList() { // constructor
 		first = null; // no items on list yet
 	}

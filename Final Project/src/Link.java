@@ -1,7 +1,7 @@
 /**
- * This class is meant to be used with the LibraryTesterSutter, LinkList, Book
- * and Library classes This features a way to keep track of if a book is out,
- * who has the book, and when the book is due.
+ * This class is meant to be used with the Library, LinkList, Book and
+ * ViewLibray, CheckOutBook and ReturnBook classes This features a way to keep
+ * track of if a book is out, who has the book, and when the book is due.
  * 
  * @author Annika Sutter
  */

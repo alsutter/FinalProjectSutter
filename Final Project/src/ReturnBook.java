@@ -43,7 +43,7 @@ public class ReturnBook {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frame.getContentPane().setLayout(null);
-		
+
 		JTextPane txtWhatBook = new JTextPane();
 		txtWhatBook.setEditable(false);
 		txtWhatBook.setBackground(Color.LIGHT_GRAY);
@@ -51,14 +51,14 @@ public class ReturnBook {
 		txtWhatBook.setText("What book is being returned?");
 		txtWhatBook.setBounds(125, 17, 191, 16);
 		frame.getContentPane().add(txtWhatBook);
-		
+
 		txtBook = new JTextField();
 		txtBook.setToolTipText("Type book number");
 		txtBook.setText("Book Number");
 		txtBook.setBounds(38, 45, 130, 26);
 		frame.getContentPane().add(txtBook);
 		txtBook.setColumns(10);
-		
+
 		JButton btnEnter = new JButton("Enter");
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -71,7 +71,7 @@ public class ReturnBook {
 		btnEnter.setToolTipText("Enter Data");
 		btnEnter.setBounds(280, 45, 117, 29);
 		frame.getContentPane().add(btnEnter);
-		
+
 		JTextPane textPane = new JTextPane();
 		textPane.setBackground(Color.LIGHT_GRAY);
 		textPane.setEditable(false);
