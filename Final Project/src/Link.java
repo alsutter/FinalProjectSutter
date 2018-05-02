@@ -28,7 +28,8 @@ public class Link {
 	/**
 	 * Display links
 	 */
-	public String displayLink() { // display ourself
-		return "{" + id + ", " + theBook + ", " + dd + "}";
+	@Override
+	public String toString() { // display ourself
+		return "{Patron: " + id + ", Book Title: " + theBook + ", Due Date: " + dd + "} \n";
 	}
 }

@@ -7,7 +7,7 @@
  */
 public class LinkList {
 	private Link first; // reference to first link on list
-	private String fullDueDate = null;
+	private String fullDueDate = "Checked Out: " + "\n";
 
 	public LinkList() { // constructor
 		first = null; // no items on list yet
@@ -29,16 +29,10 @@ public class LinkList {
 		return temp; // return deleted link
 	}
 
-	@Override
-	public String toString() {
-		return "Due: " + first;
-	}
-
 	public String displayList() {
 		Link current = first; // start at beginning of list
 		while (current != null) { // until end of list
-			current.toString();
-			fullDueDate = fullDueDate + current;
+			fullDueDate = fullDueDate + current.toString();
 			current = current.next; // move to next link
 		}
 		return fullDueDate;

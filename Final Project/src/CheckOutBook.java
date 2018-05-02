@@ -59,7 +59,7 @@ public class CheckOutBook {
 		results.setBounds(6, 156, 438, 116);
 		frame.getContentPane().add(results);
 
-		// Instructions for third text box
+		// Instructions for due text box
 		JTextPane instDue = new JTextPane();
 		instDue.setBackground(Color.LIGHT_GRAY);
 		instDue.setEditable(false);
@@ -94,7 +94,7 @@ public class CheckOutBook {
 		btnDue.setBounds(238, 123, 117, 29);
 		frame.getContentPane().add(btnDue);
 
-		// Instructions for second text box
+		// Instructions for book number text box
 		JTextPane instBook = new JTextPane();
 		instBook.setEditable(false);
 		instBook.setBackground(Color.LIGHT_GRAY);
@@ -122,6 +122,7 @@ public class CheckOutBook {
 					Library.library[bookNumber].setStatus(false);
 					txtDue.setEnabled(true);
 					btnDue.setEnabled(true);
+
 				} else {
 					results.setText("Error, please try again.");
 					actionPerformed(r);
@@ -133,7 +134,7 @@ public class CheckOutBook {
 		btnBook.setBounds(238, 73, 117, 29);
 		frame.getContentPane().add(btnBook);
 
-		// Instructions for first text box
+		// Instructions for patron text box
 		JTextPane instPatron = new JTextPane();
 		instPatron.setBackground(Color.LIGHT_GRAY);
 		instPatron.setToolTipText("Name of who is checking the book out");
@@ -154,8 +155,8 @@ public class CheckOutBook {
 		JButton btnPatron = new JButton("Enter");
 		btnPatron.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btnPatron.setText(btnPatron.getText()); // set new text
-				patron = btnPatron.getText();
+				txtPatron.setText(txtPatron.getText()); // set new text
+				patron = txtPatron.getText();
 				txtBook.setEnabled(true);
 				btnBook.setEnabled(true);
 			}
