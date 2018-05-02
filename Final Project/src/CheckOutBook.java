@@ -17,6 +17,7 @@ public class CheckOutBook {
 	private String patron = null;
 	private int bookNumber;
 	private long date;
+	LinkList dueDateList = new LinkList(); // make new list
 
 	/**
 	 * Launch the application.
@@ -45,7 +46,6 @@ public class CheckOutBook {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		LinkList dueDateList = new LinkList(); // make new list
 
 		// GUI
 		frame = new JFrame();
@@ -77,6 +77,7 @@ public class CheckOutBook {
 
 		// Due enter button
 		JButton btnDue = new JButton("Enter");
+		results.setText("");
 		btnDue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent t) {
 				txtDue.setText(txtDue.getText()); // set new text
@@ -155,6 +156,7 @@ public class CheckOutBook {
 		JButton btnPatron = new JButton("Enter");
 		btnPatron.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				results.setText("");
 				txtPatron.setText(txtPatron.getText()); // set new text
 				patron = txtPatron.getText();
 				txtBook.setEnabled(true);

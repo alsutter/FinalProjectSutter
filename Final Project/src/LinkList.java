@@ -31,6 +31,7 @@ public class LinkList {
 
 	public String displayList() {
 		Link current = first; // start at beginning of list
+		fullDueDate = "";
 		while (current != null) { // until end of list
 			fullDueDate = fullDueDate + current.toString();
 			current = current.next; // move to next link

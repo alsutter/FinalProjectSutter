@@ -44,39 +44,46 @@ public class ReturnBook {
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frame.getContentPane().setLayout(null);
 
+		//results text box
+		JTextPane txtReturn = new JTextPane();
+		txtReturn.setBackground(Color.LIGHT_GRAY);
+		txtReturn.setEditable(false);
+		txtReturn.setBounds(43, 130, 354, 118);
+		frame.getContentPane().add(txtReturn);
+		
+		//instructions for what book
 		JTextPane txtWhatBook = new JTextPane();
 		txtWhatBook.setEditable(false);
 		txtWhatBook.setBackground(Color.LIGHT_GRAY);
 		txtWhatBook.setToolTipText("");
-		txtWhatBook.setText("What book is being returned?");
-		txtWhatBook.setBounds(125, 17, 191, 16);
+		txtWhatBook.setText("Enter the due date list position that is being returned");
+		txtWhatBook.setBounds(65, 17, 343, 16);
 		frame.getContentPane().add(txtWhatBook);
-
+		
+		//text box for entry
 		txtBook = new JTextField();
 		txtBook.setToolTipText("Type book number");
-		txtBook.setText("Book Number");
-		txtBook.setBounds(38, 45, 130, 26);
+		txtBook.setText("Position (1, 2, 3... etc)");
+		txtBook.setBounds(6, 45, 169, 26);
 		frame.getContentPane().add(txtBook);
 		txtBook.setColumns(10);
 
+		//button and listeners
 		JButton btnEnter = new JButton("Enter");
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtBook.setText(txtBook.getText()); // set new text
-				int bookNumber;
-				bookNumber = Integer.parseInt(txtBook.getText()); // parse into an integer
-				Library.library[bookNumber].setStatus(true);
+				int linkNumber;
+				linkNumber = Integer.parseInt(txtBook.getText()); // parse into an integer
+				//Library.library[bookNumber].setStatus(true);
+				CheckedOutBook.dueDateList.deleteItem(linkNumber);
+				txtReturn.setText("Book " + Library.library[bookNumber].getTitle() + " was successfully returned.");
 			}
 		});
 		btnEnter.setToolTipText("Enter Data");
-		btnEnter.setBounds(280, 45, 117, 29);
+		btnEnter.setBounds(327, 45, 117, 29);
 		frame.getContentPane().add(btnEnter);
-
-		JTextPane textPane = new JTextPane();
-		textPane.setBackground(Color.LIGHT_GRAY);
-		textPane.setEditable(false);
-		textPane.setBounds(43, 130, 354, 118);
-		frame.getContentPane().add(textPane);
+		
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
