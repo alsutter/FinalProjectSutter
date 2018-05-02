@@ -1,5 +1,15 @@
-import java.awt.EventQueue;
 
+/**
+ * The CheckOutBook class is meant to be used with the Book, Library, 
+ * Link, LinkList, ReturnBook, and ViewLibrary classes. This features 3 text boxes, and 3 enter buttons. 
+ * The second 2 will be grayed out until appropriate input is in the first one. 
+ * Enter the information prompted for and the entire list of checked out books will be printed.
+ * Then, the status of the book requested will change.
+ * 
+ * @author Annika Sutter
+ */
+
+import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JTextPane;
@@ -17,7 +27,7 @@ public class CheckOutBook {
 	private String patron = null;
 	private int bookNumber;
 	private long date;
-	LinkList dueDateList = new LinkList(); // make new list
+	public static LinkList dueDateList = new LinkList(); // make new list
 
 	/**
 	 * Launch the application.
@@ -83,11 +93,11 @@ public class CheckOutBook {
 				txtDue.setText(txtDue.getText()); // set new text
 				date = Long.parseLong(txtDue.getText()); // parse into an integer
 				if (date >= 0 || date <= 123199) {
-					dueDateList.insertFirst(patron, Library.library[bookNumber].getTitle(), date);
-					results.setText(dueDateList.displayList());
-				} else {
+					dueDateList.insertFirst(patron, Library.library[bookNumber].getTitle(), date); // insert information
+					results.setText(dueDateList.displayList()); // show results
+				} else { // if something went wrong
 					results.setText("Error, please try again.");
-					actionPerformed(t);
+					actionPerformed(t); // redo
 				}
 			}
 		});
@@ -119,17 +129,18 @@ public class CheckOutBook {
 			public void actionPerformed(ActionEvent r) {
 				txtBook.setText(txtBook.getText()); // set new text
 				bookNumber = Integer.parseInt(txtBook.getText()); // parse into an integer
-				if (bookNumber <= 30) {
-					Library.library[bookNumber].setStatus(false);
+				if (bookNumber <= 30) { // check input
+					Library.library[bookNumber].setStatus(false); // check out book
 					txtDue.setEnabled(true);
 					btnDue.setEnabled(true);
 
-				} else {
+				} else { // if something went wrong
 					results.setText("Error, please try again.");
 					actionPerformed(r);
 				}
 			}
 		});
+		// button book
 		btnBook.setEnabled(false);
 		btnBook.setToolTipText("Enter data");
 		btnBook.setBounds(238, 73, 117, 29);

@@ -1,6 +1,6 @@
 /**
  * This class is meant to be used with the Library, LinkList, Book and
- * ViewLibray, CheckOutBook and ReturnBook classes This features a way to keep
+ * ViewLibray, CheckOutBook and ReturnBook classes. This features a way to keep
  * track of if a book is out, who has the book, and when the book is due.
  * 
  * @author Annika Sutter
@@ -10,6 +10,7 @@ public class Link {
 	public long dd; // data item
 	public Link next; // next link in list
 	public String theBook;
+	public int counter = 0;
 
 	/**
 	 * @param patron
@@ -30,6 +31,7 @@ public class Link {
 	 */
 	@Override
 	public String toString() { // display ourself
-		return "{Patron: " + id + ", Book Title: " + theBook + ", Due Date: " + dd + "} \n";
+		counter++; // update position
+		return "{Position: " + counter + ", Patron: " + id + ", Book Title: " + theBook + ", Due Date: " + dd + "} \n";
 	}
 }

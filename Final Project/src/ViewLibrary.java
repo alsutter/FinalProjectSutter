@@ -2,9 +2,10 @@
 /**
  * This is class is for viewing the entire library. This is only called if the user 
  * presses the view button in the Library class. The class features a method print() 
- * that turns the entire library into a single string
+ * that turns the entire library into a single string and returns it
  * @author Annika Sutter
  */
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
@@ -40,12 +41,14 @@ public class ViewLibrary {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		// create frame
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frame.setBounds(100, 100, 822, 584);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
+		// create area for the list to show
 		JTextArea txtAreaView = new JTextArea();
 		txtAreaView.setBackground(Color.LIGHT_GRAY);
 		txtAreaView.setEditable(false);

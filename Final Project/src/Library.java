@@ -1,5 +1,16 @@
-import java.awt.EventQueue;
 
+/**
+ * This is the main interface for the LibraryTesterSutter, Link, LinkList,
+ * ViewLibrary, CheckOutBook, ReturnBook, and Book classes. When launched, the
+ * user can select on of 4 commands, which are Access, Check Out, Return, or
+ * View.
+ * 
+ * Then if needed, more instructions or windows will appear and then execute
+ * necessary methods to complete request.
+ * 
+ * @author Annika Sutter
+ */
+import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JTextPane;
 import javax.swing.JTextField;
@@ -9,16 +20,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
-/**
- * This is the interface for the LibraryTesterSutter, Link, LinkList, and Book
- * classes. When launched, the user can select on of 4 commands, which are
- * Access, Check Out, Return, or View.
- * 
- * Then if needed, more instructions or windows will appear and then execute
- * necessary methods to complete request.
- * 
- * @author Annika Sutter
- */
 public class Library {
 	private JFrame frame;
 	private JTextField textField;
@@ -161,7 +162,7 @@ public class Library {
 		btnView.setToolTipText("View entire library");
 		btnView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent v) {
-				ViewLibrary.newWindow();
+				ViewLibrary.newWindow(); // open view library window
 			}
 		});
 		btnView.setBounds(6, 96, 117, 29);
@@ -181,9 +182,9 @@ public class Library {
 		frame.getContentPane().add(btnAc);
 		btnAc.addActionListener(new ActionListener() { // create listener
 			public void actionPerformed(ActionEvent a) { // button pushed
-				label.setEnabled(true);
-				textField.setEnabled(true);
-				btnClick.setEnabled(true);
+				label.setEnabled(true); // enable label
+				textField.setEnabled(true); // enable text field
+				btnClick.setEnabled(true); // enable button
 				label.setText("Enter the book number you want to access."); // change label
 
 				// btnClick access listener
@@ -207,7 +208,7 @@ public class Library {
 		btnChO.setToolTipText("Check out a book");
 		btnChO.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent c) {
-				CheckOutBook.newWindow();
+				CheckOutBook.newWindow(); // open check out book window
 			}
 		});
 		btnChO.setBounds(112, 96, 117, 29);
@@ -218,7 +219,7 @@ public class Library {
 		btnRtn.setToolTipText("Return a book");
 		btnRtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent r) {
-				ReturnBook.newWindow();
+				ReturnBook.newWindow(); // open return book window
 			}
 		});
 		btnRtn.setBounds(220, 96, 117, 29);
